@@ -1,9 +1,9 @@
-#include "ActionMapper.hpp"
+#include "Events/ActionMapper.hpp"
+
 #include "SDL3/SDL_events.h"
 #include "SDL3/SDL_scancode.h"
 #include <functional>
 #include <iostream>
-#include <iterator>
 #include <string>
 #include <utility>
 

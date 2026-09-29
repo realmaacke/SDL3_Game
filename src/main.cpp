@@ -3,7 +3,8 @@
 #include <SDL3/SDL.h>
 #include <string>
 
-int main(int argc, char** argv) {
+
+int main(int, char**) {
     Game game(800, 600, "Game title");
 
     game.init();

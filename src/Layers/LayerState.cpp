@@ -1,6 +1,7 @@
-#include "Render/LayerState.hpp"
-#include "ActionMapper.hpp"
-#include "Render/Layer.hpp"
+#include "Events/ActionMapper.hpp"
+#include "Layers/LayerState.hpp"
+#include "Layers/Layer.hpp"
+
 #include <algorithm>
 #include <iostream>
 

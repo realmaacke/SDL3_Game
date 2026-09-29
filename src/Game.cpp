@@ -1,7 +1,6 @@
 #include "Game.hpp"
 #include "SDL3/SDL_events.h"
 #include "SDL3/SDL_init.h"
-#include "SDL3/SDL_keycode.h"
 #include "SDL3/SDL_messagebox.h"
 #include "SDL3/SDL_render.h"
 #include "SDL3/SDL_video.h"
@@ -16,11 +15,11 @@ Game::Game(int width, int height, const std::string& title) {
 
     this->state.running = true;
 
-    this->_layerState.addLayer(this->world, this->input);
-    this->_layerState.addLayer(this->userInterface, this->input);
+    this->_layerState.addLayer(this->world, this->keyboard_input);
+    this->_layerState.addLayer(this->userInterface, this->keyboard_input);
 
-    this->input.bindKey(SDL_SCANCODE_F5, "toggle_UserInterface");
-    this->input.bindKey(SDL_SCANCODE_F6, "toggle_World");
+    this->keyboard_input.bindKey(SDL_SCANCODE_F5, "toggle_UserInterface");
+    this->keyboard_input.bindKey(SDL_SCANCODE_F6, "toggle_World");
 }
 
 int Game::init() {
@@ -62,7 +61,6 @@ int Game::init() {
             this->state.window
         );
     }
-
     return 0;
 };
 
@@ -72,7 +70,10 @@ int Game::event(SDL_Event event) {
             this->state.running = false;
             return 1;
         }
-        this->input.handle(event);
+        this->keyboard_input.handle(event);
+        this->mouse_input.handle(event);
+        
+        this->userInterface.onEvent(event);
     }
     return 0;
 };

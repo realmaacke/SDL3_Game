@@ -1,10 +1,10 @@
 #pragma once
-#include "ActionMapper.hpp"
-#include "Render/LayerState.hpp"
-#include "SDL3/SDL_events.h"
-#include "SDL3/SDL_render.h"
-#include "UserInterface.hpp"
+#include "Events/ActionMapper.hpp"
+#include "Events/MouseInput.hpp"
+#include "UI/UserInterface.hpp"
+#include "Layers/LayerState.hpp"
 #include "World.hpp"
+
 #include <SDL3/SDL.h>
 #include <string>
 
@@ -42,7 +42,8 @@ private:
     WindowProperties w_properties;
 
     LayerState _layerState;
-    ActionMapper input;
+    ActionMapper keyboard_input;
+    MouseInput mouse_input;
 
     UserInterface userInterface;
     World world;

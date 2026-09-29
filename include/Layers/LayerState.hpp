@@ -1,9 +1,10 @@
 #pragma once
+#include "Events/ActionMapper.hpp"
+#include "Layers/Layer.hpp"
 
-#include "ActionMapper.hpp"
-#include "Render/Layer.hpp"
 #include "SDL3/SDL_render.h"
 #include <vector>
+
 class LayerState {
 public:
     void addLayer(Layer& layer, ActionMapper& input);
