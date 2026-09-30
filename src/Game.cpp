@@ -15,11 +15,16 @@ Game::Game(int width, int height, const std::string& title) {
 
     this->state.running = true;
 
+    this->keyboard_input.loadBindings();
+
     this->_layerState.addLayer(this->world, this->keyboard_input);
     this->_layerState.addLayer(this->userInterface, this->keyboard_input);
 
-    this->keyboard_input.bindKey(SDL_SCANCODE_F5, "toggle_UserInterface");
-    this->keyboard_input.bindKey(SDL_SCANCODE_F6, "toggle_World");
+    // this->keyboard_input.bindKey(SDL_SCANCODE_F5, "toggle_UserInterface");
+    // this->keyboard_input.bindKey(SDL_SCANCODE_F6, "toggle_World");
+
+    this->keyboard_input.printHandlers();
+
 }
 
 int Game::init() {

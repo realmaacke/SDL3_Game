@@ -22,7 +22,7 @@ void LayerState::addLayer(Layer& layer, ActionMapper& input) {
         return;
     }
     // add toggle.
-    input.onAction("toggle_" + layer.layerName, [this, name = layer.layerName] {
+    input.onAction("toggle_display_" + layer.layerName, [this, name = layer.layerName] {
         this->toggleLayer(name);
     });
 

@@ -1,0 +1,13 @@
+# syntax : <operation> <key> <target>
+# operations = bind or unbind
+
+# debugging keybinds
+bind f5 toggle_display_UserInterface
+bind f6 toggle_display_World
+
+# ui binds
+
+# game binds
+
+
+# general binds

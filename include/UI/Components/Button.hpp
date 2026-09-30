@@ -10,7 +10,7 @@ public:
         std::string name,
         int zIndex,
         bool isVissible = true,
-        bool isInteractable = true,
+        bool isInteractable = true
     );
 
     void render(SDL_Renderer* renderer) override;

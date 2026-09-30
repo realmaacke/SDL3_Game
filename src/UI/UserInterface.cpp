@@ -1,7 +1,6 @@
 #include "UI/UserInterface.hpp"
 #include "SDL3/SDL_events.h"
 #include "SDL3/SDL_mouse.h"
-#include "SDL3/SDL_rect.h"
 #include "UI/Components/Button.hpp"
 #include "UI/Components/Component.hpp"
 #include <memory>

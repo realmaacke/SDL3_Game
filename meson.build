@@ -7,24 +7,20 @@ project('game', 'cpp',
   ]
 )
 
-pkg_datadir = get_option('prefix') / get_option('datadir') / meson.project_name()
+sdl3_dep = dependency('sdl3', fallback: ['sdl3', 'sdl3_dep'])
 
-# Installs the folder to: <prefix>/share/game/resources
-install_subdir('resources', install_dir : pkg_datadir)
-
-sdl3_dep    = dependency('sdl3', fallback: ['sdl3', 'sdl3_dep'])
+custom_target('cfg',
+  output: 'cfg',
+  command: ['cp', '-rT', meson.project_source_root() / 'cfg', '@OUTPUT@'],
+  build_by_default: true,
+  build_always_stale: true,
+)
 
 sources = run_command('find', 'src', '-name', '*.cpp', check: true).stdout().strip().split('\n')
 inc = include_directories('include', 'external')
 
-add_project_arguments(
-  '-DAPP_RESOURCE_DIR="' + pkg_datadir / 'resources"',
-  language : 'cpp'
-)
-
 executable('game',
   sources,
-  install: false,
   include_directories : inc,
   dependencies : [sdl3_dep]
 )
